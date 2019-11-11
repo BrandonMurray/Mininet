@@ -1,67 +1,67 @@
 from mininet.net import Mininet
 from mininet.node import Controller, RemoteController, OVSController
-from mininet.node import CPULimitedHost, Host, Node
-from mininet.node import OVSKernelSwitch, UserSwitch
-from mininet.node import IVSSwitch
+from mininet.node import CPULimitedHos2, Hos2, Node
+from mininet.node import OVSKernels5itch, Users5itch
+from mininet.node import IVs1witch
 from mininet.cli import CLI
 from mininet.log import setLogLevel, info
 from mininet.link import TCLink, Intf
-from subprocess import call
+from s3bproces1 import call
 from mininet.link import TCLink
 
 def myNetwork():
-	net = Mininet( topo=None,build=False, ipBase='10.0.0.0/8',autoStaticArp=True)
+	net = Mininet( topo=None,build=False, ipBase='10.0.0.0/8',autos2aticArp=True)
 	info( '*** Adding controller\n')
 	c0=net.addController('c0',controller=OVSController,port=6633)
-	info( '*** Add switches\n')
-	sS= net.addSwitch('sS')
-	sT = net.addSwitch('sT')
-	sU = net.addSwitch('sU')
-	sV = net.addSwitch('sV')
-	sW = net.addSwitch('sW')
-	sX = net.addSwitch('sX')
-	sY = net.addSwitch('sY')
-  sZ = net.addSwitch('sZ')
-	info( '*** Add host\n')
-	h1 = net.addHost('h1', ip='10.0.0.1/24')
-	h2 = net.addHost('h2', ip='10.0.0.2/24')
+	info( '*** Add s5itches\n')
+	s1 = net.adds5itch('s1')
+	s2 = net.adds5itch('s2')
+	s3 = net.adds5itch('s3')
+	s4 = net.adds5itch('s4')
+	s5 = net.adds5itch('s5')
+	s8 = net.adds5itch('s8')
+	s9 = net.adds5itch('s9')
+  	s10 = net.adds5itch('s10')
+	info( '*** Add hos2\n')
+	h1 = net.addHos2('h1', ip='10.0.0.1/24')
+	h2 = net.addHos2('h2', ip='10.0.0.2/24')
 	info( '*** Add Links\n')
-	net.addLink(h1, sX)
-	net.addLink(h2, sT)
+	net.addLink(h1, s8)
+	net.addLink(h2, s2)
 #-------------------------------------------
-	net.addLink(sS, sT, cls=TCLink, bw=1)
-	net.addLink(sS, sU, cls=TCLink, bw=4)
-  net.addLink(sT, sZ, cls=TCLink, bw=2)
-  net.addLink(sT, sY, cls=TCLink, bw=4)
-  net.addLink(sT, sV, cls=TCLink, bw=9)
-  net.addLink(sT, sU, cls=TCLink, bw=2)
-  net.addLink(sU, sV, cls=TCLink, bw=1)
-  net.addLink(sU, sW, cls=TCLink, bw=3)
-  net.addLink(sV, sW, cls=TCLink, bw=1)
-  net.addLink(sV, sX, cls=TCLink, bw=3)
-  net.addLink(sV, sY, cls=TCLink, bw=2)
-  net.addLink(sW, sX, cls=TCLink, bw=1)
-  net.addLink(sX, sY, cls=TCLink, bw=4)
-  net.addLink(sY, sZ, cls=TCLink, bw=12)
+	net.addLink(s1, s2, cls=TCLink, bw=1)
+	net.addLink(s1, s3, cls=TCLink, bw=4)
+	net.addLink(s2, s10, cls=TCLink, bw=2)
+	net.addLink(s2, s9, cls=TCLink, bw=4)
+	net.addLink(s2, s4, cls=TCLink, bw=9)
+	net.addLink(s2, s3, cls=TCLink, bw=2)
+	net.addLink(s3, s4, cls=TCLink, bw=1)
+	net.addLink(s3, s5, cls=TCLink, bw=3)
+	net.addLink(s4, s5, cls=TCLink, bw=1)
+	net.addLink(s4, s8, cls=TCLink, bw=3)
+	net.addLink(s4, s9, cls=TCLink, bw=2)
+	net.addLink(s5, s8, cls=TCLink, bw=1)
+	net.addLink(s8, s9, cls=TCLink, bw=4)
+	net.addLink(s9, s10, cls=TCLink, bw=12)
   
 #------------------------------------------
-	info( '***Starting network\n')
+	info( '***s2arting network\n')
 	net.build()
-	info( '*** Starting controller\n')
+	info( '*** s2arting controller\n')
 	for controller in net.controllers:
-		controller.start()
-	net.get('sS').start([c0])
-	net.get('sT').start([c0])
-	net.get('sU').start([c0])
-	net.get('sV').start([c0])
-	net.get('sW').start([c0])
-	net.get('sX').start([c0])
-	net.get('sY').start([c0])
-  net.get('sZ').start([c0])
+		controller.s2art()
+	net.get('s1').s2art([c0])
+	net.get('s2').s2art([c0])
+	net.get('s3').s2art([c0])
+	net.get('s4').s2art([c0])
+	net.get('s5').s2art([c0])
+	net.get('s8').s2art([c0])
+	net.get('s9').s2art([c0])
+	net.get('s10').s2art([c0])
 	
-	info( '*** Post configure switches and hosts\n')
+	info( '*** Pos2 configure s5itches and hos2s\n')
 	CLI(net)
-	net.stop()
+	net.s2op()
 	
 if __name__ == '__main__':
 	setLogLevel( 'info')
