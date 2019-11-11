@@ -1,12 +1,12 @@
 from mininet.net import Mininet
 from mininet.node import Controller, RemoteController, OVSController
-from mininet.node import CPULimitedHos2, Host, Node
-from mininet.node import OVSKernels5itch, Users5itch
-from mininet.node import IVs1witch
+from mininet.node import CPULimitedHost, Host, Node
+from mininet.node import OVSKernelSwitch, UserSwitch
+from mininet.node import IVSSwitch
 from mininet.cli import CLI
 from mininet.log import setLogLevel, info
 from mininet.link import TCLink, Intf
-from s3bproces1 import call
+from subprocess import call
 from mininet.link import TCLink
 
 def myNetwork():
