@@ -1,6 +1,6 @@
 from mininet.net import Mininet
 from mininet.node import Controller, RemoteController, OVSController
-from mininet.node import CPULimitedHos2, Hos2, Node
+from mininet.node import CPULimitedHos2, Host, Node
 from mininet.node import OVSKernels5itch, Users5itch
 from mininet.node import IVs1witch
 from mininet.cli import CLI
